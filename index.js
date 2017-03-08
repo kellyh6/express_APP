@@ -10,6 +10,7 @@ require ('dotenv').config();
 var app = express();
 var async = require('async');
 var request = require('request');
+var facebookArr;
 var personalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3');
 
 var personality_insights = new personalityInsightsV3({
@@ -43,7 +44,7 @@ app.get('/', function(req,res){
 
 app.get('/profile', isLoggedIn,function(req,res){
 	//getting data from facebook
-	var facebookArr;
+	// var facebookArr;
 	var url =  "https://graph.facebook.com/v2.8/me/posts?limit=1000&access_token=" + req.user.facebookToken;
 	request(url, function(error, response, body){
 		var postData = JSON.parse(body);
@@ -55,6 +56,7 @@ app.get('/profile', isLoggedIn,function(req,res){
 				facebookArr = arr.join(' ');
 			}
 		});
+		console.log(facebookArr);
 	});
 });
 	//Sending Facebook data to Watson
