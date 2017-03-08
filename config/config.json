@@ -1,0 +1,17 @@
+{
+  "development": {
+    "database": "personality",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "database": "personality",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "database": "personality",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
