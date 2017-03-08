@@ -69,10 +69,11 @@ app.get('/', function(req,res){
 		}
 	};
 	personality_insights.profile(params, function(error, response) {
-  if (error)
+  if (error){
     console.log('Error:', error);
-  else
+  }else{
     console.log(JSON.stringify(response, null, 2));
+			}
   		}
 	);
 	var postArray = postData.data.filter(function(post){

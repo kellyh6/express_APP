@@ -1,1 +1,30 @@
-layout.ejs
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Auth App</title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+</head>
+<body>
+	<div class="container">
+	 <div class="row">
+	 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	 		<% include partials/alerts %>
+	 		<%- body %>
+	 		<strong>User Object: </strong><%- JSON.stringify(currentUser) %>
+	 	</div>
+	 	 <div class="row">
+	 	 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	 	 	<hr>
+	 	 		<a href="/" class="btn btn-info">Home</a>
+	 	 		<a href="/auth/login" class="btn btn-primary">Login</a>
+	 	 		<a href="/auth/signup" class="btn btn-success">Sign Up</a>
+	 	 		<a href="/auth/logout" class="btn btn-warning">Logout</a>
+	 	 		<a href="/profile" class="btn btn-default">Profile</a>
+	 	 	</div>
+	 	 </div>
+	 </div>
+	</div>
+</body>
+</html>
