@@ -25,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     post: DataTypes.STRING,
     feed: DataTypes.STRING,
-    facebookId: DataTypes.INTEGER,
+    facebookId: DataTypes.BIGINT,
     facebookToken: DataTypes.STRING,
     watson: DataTypes.STRING
   }, {
