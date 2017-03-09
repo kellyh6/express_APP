@@ -7,6 +7,7 @@ var flash = require('connect-flash');
 var passport = require('./config/passportConfig'); 
 var isLoggedIn = require('./middleware/islogin');
 require ('dotenv').config();
+var db = require('./models');
 var app = express();
 var request = require('request');
 var async = require('async');
@@ -79,8 +80,15 @@ app.get('/profile', isLoggedIn,function(req,res){
 	  			// 	console.log(data);
 	    	// 		res.render('profile', {watsonData: data})
 	  			// });
+
+	  		db.watson.create({
+	  			where:{
+	  				result: facebookArr
+	  			}
+	  		}).then(function(){
 	  			res.render('profile', {watsonData: response})
 	  			console.log(response);
+	  			});
 			}
 	  	}); 
 	});
