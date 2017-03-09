@@ -64,9 +64,9 @@ passport.use(new facebookStrategy({
 				defaults: {
 					facebookToken: accessToken,
 					email: email,
-					firstname: profile.displayName.split(" ")[0],
-					lastname: profile.displayName.split(" ")[1],
-					username: profile.displayName,
+					firstName: profile.displayName.split(" ")[0],
+					lastName: profile.displayName.split(" ")[1],
+					userName: profile.displayName,
 					// feed: feed
 				}
 			}).spread(function(user, wasCreated){
