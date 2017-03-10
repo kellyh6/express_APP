@@ -87,7 +87,7 @@ app.get('/profile', isLoggedIn,function(req,res){
 	  			}
 	  		}).then(function(){
 	  			res.render('profile', {watsonData: response})
-	  			console.log(response);
+	  			console.log(response.personality[0].name);
 	  			});
 			}
 	  	}); 
