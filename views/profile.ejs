@@ -1,39 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
 
 <h1>Results</h1>
 
 
 <div class= 'container'>
+	<div class="row">
+		<div class="col-md-4">
 	<%for(var i = 0; i< watsonData.personality.length; i++){%>
 		<p><%=watsonData.personality[i].name%></p>
 		<p><%=watsonData.personality[i].percentile%></p>
 		<p><%=watsonData.personality[i].raw_score%></p>
 	<%}%>
-</div>
-<div class= 'container'>
+		</div>
+		<div class="col-md-4">
 	<%for(var j = 0; j< watsonData.needs.length; j++){%>
 		<p><%=watsonData.needs[j].name%></p>
 		<p><%=watsonData.needs[j].percentile%></p>
 		<p><%=watsonData.needs[j].raw_score%></p>
 	<%}%>
-</div>
-<div class= 'container'>
+		</div>
+		<div class="col-md-4">
 	<%for(var k = 0; k< watsonData.values.length; k++){%>
 		<p><%=watsonData.values[k].name%></p>
 		<p><%=watsonData.values[k].percentile%></p>
 		<p><%=watsonData.values[k].raw_score%></p>
 	<%}%>
-</div>
-<div class= 'container'>
+		</div>
+		<!-- <div class="col-md-3">
 	<%for(var l = 0; l< watsonData.consumption_preferences.length; l++){%>
 		<p><%=watsonData.consumption_preferences[l].name%></p>
 		<p><%=watsonData.consumption_preferences[l].consumption_preferences%></p>
 	<%}%>
+		</div> -->
 </div>
-</body>
-</html>
+	</div>
+
