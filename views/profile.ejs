@@ -2,43 +2,55 @@
 
 
 <h1>Results</h1>
-<h5>The scores you see are all percentiles. They are comparing one person to a broader population. For example, a 90% on Extraversion does not mean that the person is 90% extroverted. It means that for that single trait, the person is more extroverted than 90% of the people in the population.</h5>
+<div class="topverbiage">
+<h3 class="summary">Summary</h3>
+<h5>You are helpful and analytical.
+You are emotionally aware: you are aware of your feelings and how to express them. You are empathetic: you feel what others feel and are compassionate towards them. And you are altruistic: you feel fulfilled when helping others, and will go out of your way to do so.
+Your choices are driven by a desire for well-being.
+You consider both tradition and independence to guide a large part of what you do. You highly respect the groups you belong to and follow their guidance. And you like to set your own goals to decide how to best achieve them.</h5>
+<br>
+<h5>The scores you see are all percentiles. They are comparing one person to a broader population. For example, a 90% on Extraversion does not mean that the person is 90% extroverted. It means that for that single trait, the person is more extroverted than 90% of the people in the population.</h5><br>
 
+<a href="https://www.ibm.com/watson/developercloud/doc/personality-insights/science.shtml">See the science behind your results</a>
+</p>
+</div>
+
+
+<h2>Word Count: <strong><%=watsonData.word_count%></strong></h2>
 <hr size="3">
 
 
 <div class= 'container'>
 	<div class="row">
-		<div class="col-md-4 personality">
+		<div class="col-md-3 personality results">
 		<h3>Personality</h3>
 
 	<%for(var i = 0; i< watsonData.personality.length; i++){%>
 		<strong><p><%=watsonData.personality[i].name%></p></strong>
-		<p><%=Math.floor(watsonData.personality[i].percentile*100)%></p>
-
+		<p><%=Math.floor(watsonData.personality[i].percentile*100)%>%</p>
 		<%for(var l = 0; l< watsonData.personality[i].children.length; l++){%>
 			<p><%=watsonData.personality[i].children[l].name%></p>
-			<p><%=Math.floor(watsonData.personality[i].children[l].percentile*100)%></p>
+			<p><%=Math.floor(watsonData.personality[i].children[l].percentile*100)%>%</p>
 				<%}%>
 			<%}%>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3 needs results">
 		<h3>Needs</h3>
 	<%for(var j = 0; j< watsonData.needs.length; j++){%>
 		<strong><p><%=watsonData.needs[j].name%></p></strong>
-		<p><%=Math.floor(watsonData.needs[j].percentile*100)%></p>
+		<p><%=Math.floor(watsonData.needs[j].percentile*100)%>%</p>
 		<%}%>
 		</div>
 
-		<div class="col-md-4">
+		<div class="col-md-3 values results">
 		<h3>Values</h3>
 	<%for(var k = 0; k< watsonData.values.length; k++){%>
 		<strong><p><%=watsonData.values[k].name%></p></strong>
-		<p><%-Math.floor(watsonData.values[k].percentile*100)%></p>
+		<p><%-Math.floor(watsonData.values[k].percentile*100)%>%</p>
 		<%}%>
 		</div>
 
-		<div class="col-md-4">
+		<div class="col-md-3 consumption results">
 		<h3>Consumption Preference</h3>
 	<%for(var n = 0; n< watsonData.consumption_preferences.length; n++){%>
 		<strong><p><%=watsonData.consumption_preferences[n].name%></p></strong>

@@ -81,7 +81,7 @@ app.get('/profile', isLoggedIn,function(req,res){
 	  			}
 	  		}).then(function(){
 	  			res.render('profile', {watsonData: response})
-	  			console.log(response.consumption_preferences[4].consumption_preferences);
+	  			console.log(response);
 	  			});
 			}
 	  	}); 

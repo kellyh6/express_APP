@@ -1,3 +1,37 @@
 .personality {
-	background-color: yellow;
+	
+}
+.results {
+	border-style: solid;
+	border-color: black;
+	border-size: 1px;
+	margin-right: 10px;
+	position: center;
+
+}
+body {
+  margin-left: 20px;
+}
+
+.results{
+	background-color: white;
+}
+.topverbiage{
+	background-color: white;
+	border-size: 1px;
+	border-style: solid;
+	border-color: black;
+	padding: 5px;
+}
+.values {
+	margin-bottom: 5px;
+}
+.container {
+	text-align: left;
+}
+h3 {
+	text-align: center;
+}
+.summary {
+	text-align: left;
 }
