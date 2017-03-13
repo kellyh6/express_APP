@@ -35,3 +35,16 @@ h3 {
 .summary {
 	text-align: left;
 }
+.hometext {
+	background-color: white;
+	z-index: 100;
+	position: absolute;
+	padding: 5%;
+	color: #0E77AF;
+	font-family: 'Droid Sans', sans-serif;
+}
+
+img {
+    opacity: 0.2;
+    filter: alpha(opacity=20); 
+}
