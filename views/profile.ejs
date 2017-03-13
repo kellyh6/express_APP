@@ -1,36 +1,53 @@
 
+
+
 <h1>Results</h1>
+<h5>The scores you see are all percentiles. They are comparing one person to a broader population. For example, a 90% on Extraversion does not mean that the person is 90% extroverted. It means that for that single trait, the person is more extroverted than 90% of the people in the population.</h5>
+
+<hr size="3">
 
 
 <div class= 'container'>
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-4 personality">
+		<h3>Personality</h3>
+
 	<%for(var i = 0; i< watsonData.personality.length; i++){%>
-		<p><%=watsonData.personality[i].name%></p>
-		<p><%=watsonData.personality[i].percentile%></p>
-		<p><%=watsonData.personality[i].raw_score%></p>
-	<%}%>
+		<strong><p><%=watsonData.personality[i].name%></p></strong>
+		<p><%=Math.floor(watsonData.personality[i].percentile*100)%></p>
+
+		<%for(var l = 0; l< watsonData.personality[i].children.length; l++){%>
+			<p><%=watsonData.personality[i].children[l].name%></p>
+			<p><%=Math.floor(watsonData.personality[i].children[l].percentile*100)%></p>
+				<%}%>
+			<%}%>
 		</div>
 		<div class="col-md-4">
+		<h3>Needs</h3>
 	<%for(var j = 0; j< watsonData.needs.length; j++){%>
-		<p><%=watsonData.needs[j].name%></p>
-		<p><%=watsonData.needs[j].percentile%></p>
-		<p><%=watsonData.needs[j].raw_score%></p>
-	<%}%>
+		<strong><p><%=watsonData.needs[j].name%></p></strong>
+		<p><%=Math.floor(watsonData.needs[j].percentile*100)%></p>
+		<%}%>
 		</div>
+
 		<div class="col-md-4">
+		<h3>Values</h3>
 	<%for(var k = 0; k< watsonData.values.length; k++){%>
-		<p><%=watsonData.values[k].name%></p>
-		<p><%=watsonData.values[k].percentile%></p>
-		<p><%=watsonData.values[k].raw_score%></p>
-	<%}%>
+		<strong><p><%=watsonData.values[k].name%></p></strong>
+		<p><%-Math.floor(watsonData.values[k].percentile*100)%></p>
+		<%}%>
 		</div>
-		<!-- <div class="col-md-3">
-	<%for(var l = 0; l< watsonData.consumption_preferences.length; l++){%>
-		<p><%=watsonData.consumption_preferences[l].name%></p>
-		<p><%=watsonData.consumption_preferences[l].consumption_preferences%></p>
-	<%}%>
-		</div> -->
-</div>
+
+		<div class="col-md-4">
+		<h3>Consumption Preference</h3>
+	<%for(var n = 0; n< watsonData.consumption_preferences.length; n++){%>
+		<strong><p><%=watsonData.consumption_preferences[n].name%></p></strong>
+
+	<%for(var o = 0; o< watsonData.consumption_preferences[n].consumption_preferences.length; o++){%>
+			<p><%=watsonData.consumption_preferences[n].consumption_preferences[o].name%></p>
+				<%}%>	
+		<%}%>
+		</div>
 	</div>
+</div>
 

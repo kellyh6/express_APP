@@ -44,7 +44,7 @@ app.get('/', function(req,res) {
 });
 
 app.get('/profile', isLoggedIn,function(req,res){
-	//getting data from facebook
+//getting data from facebook
 	var facebookArr;
 	var url =  "https://graph.facebook.com/v2.8/me/posts?limit=1000&access_token=" + req.user.facebookToken;
 	request(url, function(error, response, body){
@@ -57,10 +57,9 @@ app.get('/profile', isLoggedIn,function(req,res){
 				facebookArr = arr.join(' ');
 			}
 		});
+// console.log(facebookArr);
 
-		// console.log(facebookArr);
-		//Sending Facebook data to Watson
-
+//Sending Facebook data to Watson
 		var params = {
 			text: facebookArr,
 			consumption_preferences: true,
@@ -70,17 +69,11 @@ app.get('/profile', isLoggedIn,function(req,res){
 				'accept': 'application/json'
 			}
 		}
-
-		//getting Watson results
+//getting Watson results
 		personality_insights.profile(params, function(error, response) {
 	 		if (error){
 	    		console.log('Error:', error);
 	  		} else {
-	  			// var watsonData = JSON.stringify(response, null, 2)
-	  			// response.json().then(function(data) {
-	  			// 	console.log(data);
-	    	// 		res.render('profile', {watsonData: data})
-	  			// });
 
 	  		db.watson.create({
 	  			where:{
@@ -88,7 +81,7 @@ app.get('/profile', isLoggedIn,function(req,res){
 	  			}
 	  		}).then(function(){
 	  			res.render('profile', {watsonData: response})
-	  			console.log(response.personality[0].name);
+	  			console.log(response.consumption_preferences[4].consumption_preferences);
 	  			});
 			}
 	  	}); 
